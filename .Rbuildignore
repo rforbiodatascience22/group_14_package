@@ -1,2 +1,9 @@
 ^mypkgname\.Rproj$
 ^\.Rproj\.user$
+^mypkgname\.Rcheck$
+^mypkgname.*\.tar\.gz$
+^mypkgname.*\.tgz$
+^LICENSE\.md$
+^CDtrans\.Rcheck$
+^CDtrans.*\.tar\.gz$
+^CDtrans.*\.tgz$
