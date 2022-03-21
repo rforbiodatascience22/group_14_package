@@ -4,7 +4,6 @@
 #' @param start Position to start the codon counting/dividing. Default start = 1
 #'
 #' @return Character vector where each element is a codon.
-#' @export 
 #'
 #' @examples getCodon("UCGUUA", start = 1). Returns a character vector c("CGU", "UAA")
 getCodon <- function(RNASeq, start = 1){
