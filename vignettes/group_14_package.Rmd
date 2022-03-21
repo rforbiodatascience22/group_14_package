@@ -1,0 +1,33 @@
+---
+title: "group_14_package"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{group_14_package}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+# Introduction to group_14_package
+The group_14_package contains a dataset called 'codonTable.rda' and 5 different functions.  
+
+## Data - codonTable
+To explore the different functions and their possibilities a dataset is preloaded with the package.  
+Data is a table describing the different amino acids by a capital letter and how different combinations/codons can describe an amino acid.
+
+```{r, echo=FALSE}
+data = get(load("/cloud/project/data/codonTable.rda"))
+data
+```
+## Generate your own DNA string using `stringDNA()`
+```{r}
+stringDNA(size = 50)
+```
+
+
