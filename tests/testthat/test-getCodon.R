@@ -1,3 +1,6 @@
-test_that("Getting codons", {
-  expect_equal(2 * 2, 4)
+#Testing the getCodon function for working
+
+test_that("outputs a character vector dividing by 3", {
+  expect_equal(getCodon("UCGUUA", start = 1), c("UCG","UUA"))
 })
+
