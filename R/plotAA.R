@@ -6,7 +6,7 @@
 #' @param stringAA
 #'
 #' @importFrom magrittr %>%
-plotAAOccur <- function(stringAA = ""){
+plotAAOccur <- function(stringAA){
   #create the categories
   uniqueAA <- stringAA %>%
     #splitting the input string for every character
