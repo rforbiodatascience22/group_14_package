@@ -2,18 +2,21 @@
 % Please edit documentation in R/getCodon.R
 \name{getCodon}
 \alias{getCodon}
-\title{Getting Codins}
+\title{Getting Codons}
 \usage{
 getCodon(RNASeq, start = 1)
 }
 \arguments{
 \item{start}{Position to start the codon counting/dividing. Default start = 1}
 
-\item{RNAseq}{RNA sequence input}
+\item{RNAseq}{RNA sequence input as string.}
 }
 \value{
-Goes through a RNA sequence and create the triplet codons (extracting character vector substring by 3)
+Character vector where each element is a codon.
 }
 \description{
-Getting Codins
+Getting Codons
+}
+\examples{
+getCodon("UCGUUA", start = 1). Returns a character vector c("CGU", "UAA")
 }
