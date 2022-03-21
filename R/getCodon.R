@@ -5,7 +5,10 @@
 #'
 #' @return Character vector where each element is a codon.
 #'
-#' @examples getCodon("UCGUUA", start = 1). Returns a character vector c("CGU", "UAA")
+#' @examples 
+#' RNA <- "UCGUUA"
+#' getCodon("UCGUUA", start = 1). 
+#' "CGU"    "UAA"
 getCodon <- function(RNASeq, start = 1){
   seqLen <- nchar(RNASeq)
   codons <- substring(RNASeq,
