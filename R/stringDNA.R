@@ -9,6 +9,7 @@
 #' stringDNA(size = 20)
 
 stringDNA <- function(size = 1){
+  set.seed(50)
   sampleDNA <- sample(c("A", "T", "G", "C"), size = size, replace = TRUE)
   strDNA <- paste0(sampleDNA, collapse = "")
   return(strDNA)
