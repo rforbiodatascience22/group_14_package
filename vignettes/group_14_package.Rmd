@@ -1,6 +1,10 @@
 ---
 title: "group_14_package"
-output: rmarkdown::html_vignette
+author:  
+ - Alesia Olsen (s174584), Cathrine Lind (s184284), Julia Youngman (s123540),   
+ - Mads Hartmann (s184284), Swati Tak (s220868)
+output: pdf_document
+date: '2022-03-24'
 vignette: >
   %\VignetteIndexEntry{group_14_package}
   %\VignetteEngine{knitr::rmarkdown}
@@ -71,16 +75,19 @@ getCodon(RNATrans(stringDNA(size = 50)))
 ```
 
 
-### Aminoacid occurance plot 
+### Amino acid occurance plot 
 The plotAAOccur function creates a bar chart of every unique character (here assumed to be amino acids) in the input string, in correspondence to the number of occurrences for each character in the input string. 
 
 
 The function will only return a plot so if the data is needed, using the counts variable as an extra output could be usefull (the output would be a dataframe)
 
-```{r}
+```{r,echo = FALSE,include=FALSE}
 #tidyverse is needed for the pipe functionality
 library(tidyverse)
+```
 
+
+```{r}
 
 plotAAOccur <- function(stringAA){
   #create the categories
@@ -94,7 +101,8 @@ plotAAOccur <- function(stringAA){
 
 # counting occurance of the uniqe charaters in the original string
 
-  counts <- sapply(uniqueAA, function(occurrenceAA) stringr::str_count(string = stringAA, pattern =  occurrenceAA)) %>%
+  counts <- sapply(uniqueAA, function(occurrenceAA) stringr::str_count(
+      string = stringAA, pattern =  occurrenceAA)) %>%
     as.data.frame()
 
 
@@ -108,12 +116,10 @@ plotAAOccur <- function(stringAA){
     ggplot2::geom_col() +
     ggplot2::theme_bw()
 
-
   return(occurrenceAAplot)
 }
 
-#Example run
-
+#Example run using the four DNA nucleotides
 plotAAOccur(stringDNA(size = 100))
 
 ```
