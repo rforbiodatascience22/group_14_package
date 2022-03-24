@@ -33,7 +33,7 @@ data
 The function generates a string of DNA bases “A”, “T”, “G” and “C” using sampling method.  The length of the DNA string is defined by the size argument, where default is 1. Output is a DNA string.
 ```{r}
 stringDNA <- function(size = 1){
-  set.seed(50)
+  set.seed(41)
   sampleDNA <- sample(c("A", "T", "G", "C"), size = size, replace = TRUE)
   strDNA <- paste0(sampleDNA, collapse = "")
   return(strDNA)
@@ -73,6 +73,23 @@ getCodon(RNA, start = 1)
 getCodon(RNATrans("CGCGGTTGGCCCTGAAGCTGCATGCAATTATCATATGGTGGGACTCGTGC"))
 getCodon(RNATrans(stringDNA(size = 50)))
 ```
+
+### From Codons to Amino acids
+
+
+```{r}
+check_codon <- function(codons){
+  is_codon <- paste0(codonTable[codons], collapse = "")
+  return(is_codon)
+}
+
+
+#Example run
+check_codon(getCodon(RNATrans(stringDNA(size = 50))))
+
+
+```
+
 
 
 ### Amino acid occurance plot 
@@ -122,6 +139,9 @@ plotAAOccur <- function(stringAA){
 #Example run using the four DNA nucleotides
 plotAAOccur(stringDNA(size = 100))
 
+
+#Example run with Amino acids
+plotAAOccur(check_codon(getCodon(RNATrans(stringDNA(size = 50)))))
 ```
 
 
