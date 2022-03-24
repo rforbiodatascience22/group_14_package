@@ -78,6 +78,10 @@ The plotAAOccur function creates a bar chart of every unique character (here ass
 The function will only return a plot so if the data is needed, using the counts variable as an extra output could be usefull (the output would be a dataframe)
 
 ```{r}
+#tidyverse is needed for the pipe functionality
+library(tidyverse)
+
+
 plotAAOccur <- function(stringAA){
   #create the categories
   uniqueAA <- stringAA %>%
@@ -107,6 +111,11 @@ plotAAOccur <- function(stringAA){
 
   return(occurrenceAAplot)
 }
+
+#Example run
+
+plotAAOccur(stringDNA(size = 100))
+
 ```
 
 
