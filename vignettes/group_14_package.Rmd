@@ -26,6 +26,7 @@ data = get(load("/cloud/project/data/codonTable.rda"))
 data
 ```
 ## Generate your own DNA string using `stringDNA()`
+The function generates a string of DNA bases “A”, “T”, “G” and “C” using sampling method.  The length of the DNA string is defined by the size argument, where default is 1. Output is a DNA string.
 ```{r}
 stringDNA <- function(size = 1){
   set.seed(50)
@@ -68,4 +69,45 @@ getCodon(RNA, start = 1)
 getCodon(RNATrans("CGCGGTTGGCCCTGAAGCTGCATGCAATTATCATATGGTGGGACTCGTGC"))
 getCodon(RNATrans(stringDNA(size = 50)))
 ```
+
+
+### Aminoacid occurance plot 
+The plotAAOccur function creates a bar chart of every unique character (here assumed to be amino acids) in the input string, in correspondence to the number of occurrences for each character in the input string. 
+
+
+The function will only return a plot so if the data is needed, using the counts variable as an extra output could be usefull (the output would be a dataframe)
+
+```{r}
+plotAAOccur <- function(stringAA){
+  #create the categories
+  uniqueAA <- stringAA %>%
+    #splitting the input string for every character
+    stringr::str_split(pattern = stringr::boundary("character"), simplify = TRUE) %>%
+    #making everything in the final string a character
+    as.character() %>%
+    #keep only unique entries in the string
+    unique()
+
+# counting occurance of the uniqe charaters in the original string
+
+  counts <- sapply(uniqueAA, function(occurrenceAA) stringr::str_count(string = stringAA, pattern =  occurrenceAA)) %>%
+    as.data.frame()
+
+
+
+  colnames(counts) <- c("Counts")
+  counts[["stringAA"]] <- rownames(counts)
+
+  #plotting the entries in the input and the occurrence of each
+  occurrenceAAplot <- counts %>%
+    ggplot2::ggplot(ggplot2::aes(x = stringAA, y = Counts, fill = stringAA)) +
+    ggplot2::geom_col() +
+    ggplot2::theme_bw()
+
+
+  return(occurrenceAAplot)
+}
+```
+
+
 
