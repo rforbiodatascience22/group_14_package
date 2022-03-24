@@ -75,7 +75,7 @@ getCodon(RNATrans(stringDNA(size = 50)))
 ```
 
 ### From Codons to Amino acids
-
+Using the data table called codonTable it is possible to translate codons into amino acids and then return it as a sting
 
 ```{r}
 check_codon <- function(codons){
