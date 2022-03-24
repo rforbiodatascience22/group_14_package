@@ -27,7 +27,28 @@ data
 ```
 ## Generate your own DNA string using `stringDNA()`
 ```{r}
+stringDNA <- function(size = 1){
+  set.seed(50)
+  sampleDNA <- sample(c("A", "T", "G", "C"), size = size, replace = TRUE)
+  strDNA <- paste0(sampleDNA, collapse = "")
+  return(strDNA)
+}
+
+# Example run
 stringDNA(size = 50)
+```
+### Translation of DNA to RNA
+When generating a DNA string using the function above it might also be wanted to translate this into a RNA string. For this the `RNATrans`function can be used. This function takes a certain DNA string (character) and returns the corresponding RNA string that would be development as a result of the transcription process, in line with the central dogma.  
+```{r}
+RNATrans <- function(strDNA){ 
+
+  strRNA <- gsub("T", "U", strDNA) 
+  return(strRNA) 
+}
+
+# Example runs
+RNATrans("CGCGGTTGGCCCTGAAGCTGCATGCAATTATCATATGGTGGGACTCGTGC")
+RNATrans(stringDNA(size = 50))
 ```
 
 
