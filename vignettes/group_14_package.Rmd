@@ -41,7 +41,6 @@ stringDNA(size = 50)
 When generating a DNA string using the function above it might also be wanted to translate this into a RNA string. For this the `RNATrans`function can be used. This function takes a certain DNA string (character) and returns the corresponding RNA string that would be development as a result of the transcription process, in line with the central dogma.  
 ```{r}
 RNATrans <- function(strDNA){ 
-
   strRNA <- gsub("T", "U", strDNA) 
   return(strRNA) 
 }
@@ -50,5 +49,23 @@ RNATrans <- function(strDNA){
 RNATrans("CGCGGTTGGCCCTGAAGCTGCATGCAATTATCATATGGTGGGACTCGTGC")
 RNATrans(stringDNA(size = 50))
 ```
+### From DNA to RNA to codons
+The getCodon function takes an RNA sequence as input string and returns a character vector of codons. Each invividual element in the vector is a triplet of three ribonucleic acids. As a default the open reading frame starts at at first character in the input RNA sequence, but this function also allows the user to determine the start position of the open reading frame.  
 
+The getCodon function can be used in conjuction with RNATrans() as the next step in processing sequencing data. The output from RNATrans() is an RNA sequence that can be directly inputted into getCodon() to retrieve the codons given in the RNA sequence. 
+```{r}
+getCodon <- function(RNASeq, start = 1){ 
+  seqLen <- nchar(RNASeq) 
+  codons <- substring(RNASeq, 
+                      first = seq(from = start, to = seqLen-3+1, by = 3), 
+                      last = seq(from = 3+start-1, to = seqLen, by = 3)) 
+  return(codons) 
+} 
+
+# Example runs
+RNA <- "UCGUUA" 
+getCodon(RNA, start = 1)
+getCodon(RNATrans("CGCGGTTGGCCCTGAAGCTGCATGCAATTATCATATGGTGGGACTCGTGC"))
+getCodon(RNATrans(stringDNA(size = 50)))
+```
 
