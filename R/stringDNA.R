@@ -6,9 +6,6 @@
 #'
 #' @return A string of DNA characters.
 #' @export
-#'
-#' @examples
-#' stringDNA(size = 20)
 
 stringDNA <- function(size = 1){
   set.seed(50)

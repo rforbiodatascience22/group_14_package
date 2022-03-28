@@ -18,5 +18,7 @@ Character vector where each element is a codon.
 Getting Codons
 }
 \examples{
-getCodon("UCGUUA", start = 1). Returns a character vector c("CGU", "UAA")
+RNA <- "UCGUUA"
+getCodon("UCGUUA", start = 1). 
+"CGU"    "UAA"
 }

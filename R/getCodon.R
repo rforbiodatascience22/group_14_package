@@ -4,11 +4,7 @@
 #' @param start Position to start the codon counting/dividing. Default start = 1
 #'
 #' @return Character vector where each element is a codon.
-#'
-#' @examples 
-#' RNA <- "UCGUUA"
-#' getCodon("UCGUUA", start = 1). 
-#' "CGU"    "UAA"
+
 getCodon <- function(RNASeq, start = 1){
   seqLen <- nchar(RNASeq)
   codons <- substring(RNASeq,

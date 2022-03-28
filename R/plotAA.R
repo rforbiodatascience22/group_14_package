@@ -3,7 +3,7 @@
 #' Description
 #' Plotting the occurrence of AA in the input stringAA
 #'
-#' @param stringAA
+#' @param stringAA stringAA
 #'
 #' @importFrom magrittr %>%
 
