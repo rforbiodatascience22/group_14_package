@@ -6,6 +6,7 @@
 #' @param stringAA stringAA
 #'
 #' @importFrom magrittr %>%
+#' @export
 
 plotAAOccur <- function(stringAA){
   #create the categories
